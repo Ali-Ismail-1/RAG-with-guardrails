@@ -1,3 +1,4 @@
+# requirements.api.lean.txt
 # --- Web framework / server ---
 fastapi>=0.115
 uvicorn[standard]>=0.30

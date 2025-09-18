@@ -1,3 +1,4 @@
+# memory/vectorstore.py
 import os
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
@@ -23,7 +24,7 @@ def build_or_load_vectorstore(doc_dir: str, chroma_dir: str) -> Chroma:
     splits = splitter.split_documents(docs)
     
     # create embeddings
-    embeddings = HuggingFaceEmbeddings(model_name=settings.embeddings_model)
+    embeddings = get_embeddings()
     vectorstore = Chroma(persist_directory=chroma_dir, embedding_function=embeddings)
     
     # add new data to vectorstore
@@ -31,6 +32,29 @@ def build_or_load_vectorstore(doc_dir: str, chroma_dir: str) -> Chroma:
         vectorstore.add_documents(splits)
     
     return vectorstore
+
+
+def get_embeddings():
+    provider = os.getenv("embeddings_provider", "openai").lower()
+
+    if provider == "openai":
+        from langchain_openai import OpenAIEmbeddings
+        model = os.getenv("openai_embeddings_model", "text-embedding-3-small")
+        return OpenAIEmbeddings(model=model, api_key=os.getenv("OPENAI_API_KEY"))
+
+    if provider == "huggingface":
+        try:
+            from langchain_huggingface import HuggingFaceEmbeddings
+        except ModuleNotFoundError as e:
+            raise RuntimeError(
+                "embeddings_provider=huggingface but 'langchain-huggingface' "
+                "is not installed in this environment."
+            ) from e
+        model = os.getenv("hf_embeddings_model", "sentence-transformers/all-MiniLM-L6-v2")
+        return HuggingFaceEmbeddings(model_name=model)
+
+    raise ValueError(f"Unknown embeddings_provider: {provider}")
+
 
 VDB = build_or_load_vectorstore(settings.doc_dir, settings.chroma_dir)
 RETRIEVER = VDB.as_retriever(search_kwargs={"k": 2})
