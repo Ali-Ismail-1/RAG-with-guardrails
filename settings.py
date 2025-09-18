@@ -1,6 +1,9 @@
 # settings.py
 import os
+from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+BASE_DIR = Path(__file__).resolve()
 
 class Settings(BaseSettings):
     # Provider + OpenAI
@@ -14,9 +17,12 @@ class Settings(BaseSettings):
     ollama_model: str = "llama3.8b"
     ollama_base_url: str | None = None # default "http://localhost:11434"
 
+    # Documents
+    doc_dir: str = str("app/data/docs")
+
     # Embeddings + Chroma
     embeddings_model: str = "sentence-transformers/all-MiniLM-L6-v2"
-    chroma_dir: str = "app/data/chroma"
+    chroma_dir: str = str("app/data/chroma")
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 

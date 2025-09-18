@@ -30,4 +30,5 @@ archive.zip
 # macOS
 .DS_Store
 
+# Chroma
 app/data/chroma/*
