@@ -184,13 +184,13 @@ Edit `settings.py` (or use `.env`) to configure:
 
 ## 📌 Roadmap
 
-✅ Current: Basic RAG pipeline (retriever + LLM + history)
-✅ Guardrails for PII + profanity
-✅ Monitoring (logging + feedback)
-🔜 Add LangGraph orchestration for more complex flows  
-🔜 Add richer UI (React or Next.js)
-🔜 Add more advanced compliance filters
-🔜 Support additional vector stores (Pinecone, Weaviate)  
+- ✅ Current: Basic RAG pipeline (retriever + LLM + history)
+- ✅ Guardrails for PII + profanity
+- ✅ Monitoring (logging + feedback)
+- 🔜 Add LangGraph orchestration for more complex flows  
+- 🔜 Add richer UI (React or Next.js)
+- 🔜 Add more advanced compliance filters
+- 🔜 Support additional vector stores (Pinecone, Weaviate)  
 
 ---
 
