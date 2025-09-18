@@ -7,7 +7,7 @@ from llm.providers import get_llm
 from memory.vectorstore import RETRIEVER
 from memory.history import get_history
 from guardrails.prompts import BASE_PROMPT
-from guardrails.filters import strip_think
+from guardrails.filters import contains_profanity, redact_pii, strip_think
 from monitoring.logging import log_interaction
 
 
@@ -28,11 +28,16 @@ RAG = make_rag_chain()
 
 def ask_with_context(session_id: str, question: str) -> str:
     
+    if contains_profanity(question):
+        return "Inappropriate content detected."
+
     result = RAG.invoke(
         {"input": question},
         config={"configurable": {"session_id": session_id}},
     )
+
     answer = result.get("answer") or str(result)
     answer = strip_think(answer)
+    answer = redact_pii(answer)
     log_interaction(session_id, question, answer)
     return answer
