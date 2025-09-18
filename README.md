@@ -19,6 +19,16 @@ It demonstrates how to build a chatbot that:
 
 ---
 
+
+### Run with Docker
+```bash
+docker compose up --build
+# UI http://localhost:8501, API http://localhost:8000
+```
+
+---
+
+
 ## ⚙️ Anatomy → Code Mapping
 
 | Anatomy Part  | Folder / File                  | Description |
