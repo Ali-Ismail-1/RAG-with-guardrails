@@ -196,6 +196,12 @@ Edit `settings.py` (or use `.env`) to configure:
 
 ---
 
+## Demo 
+
+<img width="1402" height="979" alt="image" src="https://github.com/user-attachments/assets/23324c61-5084-4cd5-96a5-a6d59a410244" />
+
+---
+
 ## 🛡️ Disclaimer
 This project is for **educational use only**.  
 Before deploying in production:
