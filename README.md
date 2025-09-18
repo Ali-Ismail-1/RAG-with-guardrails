@@ -3,6 +3,7 @@
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
 ![LangChain](https://img.shields.io/badge/LangChain-0.2.14-yellow)
+![LangGraph](https://img.shields.io/badge/Orchestration-LangGraph-blue?logo=networkx&logoColor=white)
 ![Status](https://img.shields.io/badge/status-experimental-orange)
 
 This project is a simple **Retrieval-Augmented Generation (RAG) chatbot** built with **FastAPI + LangChain + Chroma + Ollama/OpenAI**.  
@@ -49,6 +50,22 @@ It demonstrates how to build a chatbot that:
 - **Monitoring**:
   - Logs interactions to `logs/chat.log`
   - Collects user feedback (`feedback.jsonl`)
+
+## 🕸️ Orchestration Options
+
+This project supports two orchestration modes:
+
+1. **LangChain (default)**  
+   A simple linear RAG chain: retriever → LLM → answer.
+
+2. **LangGraph (optional)**  
+   A graph-based approach for more complex flows (branching, retries, guardrails, tool-calling).
+
+Toggle via `settings.py`:
+
+```python
+use_langgraph = True
+```
 
 ---
 
