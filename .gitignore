@@ -32,3 +32,6 @@ archive.zip
 
 # Chroma
 app/data/chroma/*
+
+# Logs
+rag_chatbot.log
