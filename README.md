@@ -1,10 +1,10 @@
 # RAG Chatbot (Compliant & Safe)
 
-![Python](https://img.shields.io/badge/python-3.11-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
-![LangChain](https://img.shields.io/badge/LangChain-0.2.14-yellow)
-![LangGraph](https://img.shields.io/badge/Orchestration-LangGraph-blue?logo=networkx&logoColor=white)
-![Status](https://img.shields.io/badge/status-experimental-orange)
+[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115.0-green?logo=fastapi)](https://fastapi.tiangolo.com/)
+[![LangChain](https://img.shields.io/badge/LangChain-0.2.14-yellow)](https://python.langchain.com/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-0.0.48-blue?logo=networkx&logoColor=white)](https://langchain-ai.github.io/langgraph/)
+![Status](https://img.shields.io/badge/Status-Experimental-orange)
 
 This project is a simple **Retrieval-Augmented Generation (RAG) chatbot** built with **FastAPI + LangChain + Chroma + Ollama/OpenAI**.  
 
