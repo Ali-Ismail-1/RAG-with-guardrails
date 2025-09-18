@@ -13,7 +13,7 @@
     WORKDIR /app
     
     # Copy requirements first for better layer caching
-    COPY requirements.txt requirements.txt
+    COPY requirements.api.lean.txt requirements.txt
     # If you have a dev file, comment it out in prod images
     # COPY requirements-dev.txt requirements-dev.txt
     

@@ -7,4 +7,8 @@ __pycache__/
 .venv
 venv
 .env
+.git
+.github
 data/chroma/*
+# (optional) if you rebuild embeddings on boot, also ignore docs:
+# data/docs/*
