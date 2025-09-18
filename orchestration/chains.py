@@ -8,6 +8,7 @@ from memory.vectorstore import RETRIEVER
 from memory.history import get_history
 from guardrails.prompts import BASE_PROMPT
 from guardrails.filters import strip_think
+from monitoring.logging import log_interaction
 
 
 def make_rag_chain():
@@ -27,12 +28,11 @@ RAG = make_rag_chain()
 
 def ask_with_context(session_id: str, question: str) -> str:
     
-    context_docs = RETRIEVER.invoke(question)
-    context = "\n\n".join([doc.page_content for doc in context_docs])
-    
     result = RAG.invoke(
         {"input": question},
         config={"configurable": {"session_id": session_id}},
     )
     answer = result.get("answer") or str(result)
-    return strip_think(answer)
+    answer = strip_think(answer)
+    log_interaction(session_id, question, answer)
+    return answer
