@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     embeddings_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     chroma_dir: str = str("app/data/chroma")
 
+    # Orchestration toggle
+    use_langgraph: bool = True
+
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
 settings = Settings()

@@ -15,3 +15,7 @@ rich             # nicer console output + logging
 
 # --- Docs / Jupyter (optional) ---
 jupyter          # notebooks (only if you want)
+
+
+# Orchestration
+langgraph
