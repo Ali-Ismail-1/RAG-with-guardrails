@@ -10,5 +10,6 @@ squares = [x*x for x in range(10)]
 ```
 
 ## Debugging
-
+```python
 Use import pdb; pdb.set_trace() to pause execution and enter a debugger.
+```

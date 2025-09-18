@@ -19,7 +19,7 @@ def build_or_load_vectorstore(doc_dir: str, chroma_dir: str) -> Chroma:
                 docs.extend(PyPDFLoader(path).load())
 
     # split into chunks
-    splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=120)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=50)
     splits = splitter.split_documents(docs)
     
     # create embeddings
