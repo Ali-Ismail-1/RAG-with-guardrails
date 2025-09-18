@@ -1,5 +1,10 @@
 # RAG Chatbot (Compliant & Safe)
 
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
+![LangChain](https://img.shields.io/badge/LangChain-0.2.14-yellow)
+![Status](https://img.shields.io/badge/status-experimental-orange)
+
 This project is a simple **Retrieval-Augmented Generation (RAG) chatbot** built with **FastAPI + LangChain + Chroma + Ollama/OpenAI**.  
 
 It demonstrates how to build a chatbot that:
@@ -9,17 +14,25 @@ It demonstrates how to build a chatbot that:
 - Passes them into an **LLM** with a custom prompt
 - Maintains **chat history** across sessions
 - Exposes an API with a `/chat` endpoint for interaction
+- Adds **guardrails for compliance and safety** (PII redaction, profanity filter, monitoring)
 
 ---
 
 ## 🚀 Features
+
 
 - **FastAPI API** with `/health` and `/chat` endpoints
 - **Retriever + LLM orchestration** using LangChain
 - **Chroma Vectorstore** with embeddings from HuggingFace
 - **Session-based memory** (chat history tracked by `session_id`)
 - **Pluggable LLM backends** (Ollama or OpenAI)
-- **Guardrails** (filters, prompts, safe defaults)
+- **Guardrails**:
+  - PII redaction (SSNs, phone numbers, emails)
+  - Profanity detection
+  - Safe default prompts (`I don’t know` when context is missing)
+- **Monitoring**:
+  - Logs interactions to `logs/chat.log`
+  - Collects user feedback (`feedback.jsonl`)
 
 ---
 
@@ -35,16 +48,21 @@ It demonstrates how to build a chatbot that:
 ├── guardrails/ # Prompts + filters
 │ ├── prompts.py
 │ └── filters.py
+├── monitoring/ # Logs + feedback collection
+│ ├── logging.py
+│ └── evals.py
 ├── data/
 │ ├── docs/ # Input documents (.md, .txt, .pdf)
 │ └── chroma/ # Vectorstore persistence
 ├── llm/ # LLM provider utils (Ollama / OpenAI)
 │ └── providers.py
+├── ui/ # Streamlit chat interface
+│ └── app.py
 ├── main.py # FastAPI app entrypoint
 ├── settings.py # Config (doc_dir, chroma_dir, models, etc.)
 ├── requirements.txt
+├── requirements-dev.txt
 └── README.md
-
 
 ---
 
@@ -52,11 +70,11 @@ It demonstrates how to build a chatbot that:
 
 ### 1. Clone & Install
 ```bash
-git clone <your-repo>
+git clone https://github.com/Ali-Ismail-1/RAG-with-guardrails
 cd RAG-chatbot-compliant-safe
 python -m venv venv
 source venv/bin/activate   # or venv\Scripts\activate on Windows
-pip install -r requirements.txt
+pip install -r requirements.txt -r requirements-dev.txt
 ```
 
 ---
@@ -79,6 +97,13 @@ ollama run llama3:8b
 ```bash
 uvicorn main:app --reload
 ```
+
+## 5. Run with Streamlit UI:
+```bash
+streamlit run ui/app.py
+```
+Then open http://localhost:8501
+
 
 ---
 
@@ -134,6 +159,14 @@ Response:
 **Memory**
 - Tracks past conversation history by `session_id`
 
+**Guardrails**
+- Redacts PII and blocks profanity
+- Ensures fallback response when no context is found
+
+**Monitoring**
+- Logs every Q/A
+- Collects user feedback for evaluation
+
 ---
 
 ## 🔧 Config
@@ -151,17 +184,23 @@ Edit `settings.py` (or use `.env`) to configure:
 
 ## 📌 Roadmap
 
-✅ Current: Basic RAG pipeline (retriever + LLM + history)  
+✅ Current: Basic RAG pipeline (retriever + LLM + history)
+✅ Guardrails for PII + profanity
+✅ Monitoring (logging + feedback)
 🔜 Add LangGraph orchestration for more complex flows  
-🔜 Add UI (Streamlit or React) for a chat interface  
-🔜 Add more guardrails (profanity filter, compliance checks)  
-🔜 Add support for additional vector stores (Pinecone, Weaviate)  
+🔜 Add richer UI (React or Next.js)
+🔜 Add more advanced compliance filters
+🔜 Support additional vector stores (Pinecone, Weaviate)  
 
 ---
 
 ## 🛡️ Disclaimer
 This project is for **educational use only**.  
-Before deploying in production, add compliance checks, guardrails, monitoring, and security hardening.
+Before deploying in production:
+- Strengthen compliance checks
+- Add monitoring & logging pipelines
+- Secure API endpoints
+- Evaluate against real-world data
 
 ---
 
