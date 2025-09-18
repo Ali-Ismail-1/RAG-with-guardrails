@@ -37,32 +37,34 @@ It demonstrates how to build a chatbot that:
 ---
 
 ## 📂 Project Structure
+```
 
-├── api/ # API routes + request models
-│ └── routes.py
-├── orchestration/ # RAG orchestration
-│ └── chains.py
-├── memory/ # Vectorstore + chat history
-│ ├── vectorstore.py
-│ └── history.py
-├── guardrails/ # Prompts + filters
-│ ├── prompts.py
-│ └── filters.py
-├── monitoring/ # Logs + feedback collection
-│ ├── logging.py
-│ └── evals.py
+├── api/                  # API routes + request models
+│   └── routes.py
+├── orchestration/        # RAG orchestration
+│   └── chains.py
+├── memory/               # Vectorstore + chat history
+│   ├── vectorstore.py
+│   └── history.py
+├── guardrails/           # Prompts + filters
+│   ├── prompts.py
+│   └── filters.py
+├── monitoring/           # Logs + feedback collection
+│   ├── logging.py
+│   └── evals.py
 ├── data/
-│ ├── docs/ # Input documents (.md, .txt, .pdf)
-│ └── chroma/ # Vectorstore persistence
-├── llm/ # LLM provider utils (Ollama / OpenAI)
-│ └── providers.py
-├── ui/ # Streamlit chat interface
-│ └── app.py
-├── main.py # FastAPI app entrypoint
-├── settings.py # Config (doc_dir, chroma_dir, models, etc.)
+│   ├── docs/             # Input documents (.md, .txt, .pdf)
+│   └── chroma/           # Vectorstore persistence
+├── llm/                  # LLM provider utils (Ollama / OpenAI)
+│   └── providers.py
+├── ui/                   # Streamlit chat interface
+│   └── app.py
+├── main.py               # FastAPI app entrypoint
+├── settings.py           # Config (doc_dir, chroma_dir, models, etc.)
 ├── requirements.txt
 ├── requirements-dev.txt
 └── README.md
+```
 
 ---
 
