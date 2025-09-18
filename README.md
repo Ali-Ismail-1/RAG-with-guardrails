@@ -18,6 +18,22 @@ It demonstrates how to build a chatbot that:
 
 ---
 
+## ⚙️ Anatomy → Code Mapping
+
+| Anatomy Part  | Folder / File                  | Description |
+|---------------|--------------------------------|-------------|
+| Interface     | `app/api/routes.py`            | FastAPI endpoints (`/chat`, `/sentiment`) |
+| Brain         | `app/llm/providers.py`         | LLM (GPT-4o, Claude, Llama) |
+| Memory        | `app/memory/vectorstore.py`    | Chroma vector DB (long-term) |
+|               | `app/memory/history.py`        | Chat history per session (short-term) |
+| Orchestrator  | `app/orchestration/chains.py`  | Retrieval + RAG pipeline |
+| Guardrails    | `app/guardrails/prompts.py`    | Safe system prompt |
+|               | `app/guardrails/filters.py`    | Strip unwanted tokens (e.g. `<think>`) |
+| Tools         | `app/tools/sentiment.py`       | Extra skill (sentiment analysis) |
+| Feedback      | `app/monitoring/logging.py`    | Logging stub for monitoring |
+
+---
+
 ## 🚀 Features
 
 
@@ -105,7 +121,6 @@ uvicorn main:app --reload
 streamlit run ui/app.py
 ```
 Then open http://localhost:8501
-
 
 ---
 
