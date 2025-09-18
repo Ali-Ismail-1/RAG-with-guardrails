@@ -1,8 +1,9 @@
 # ui/app.py
 import streamlit as st
 import requests
+import os
 
-API_URL = "http://localhost:8000/chat"
+API_URL = os.getenv("API_URL", "http://localhost:8000/chat")
 
 st.set_page_config(page_title="Compliance-Safe RAG Chatbot", page_icon=":robot_face:")
 

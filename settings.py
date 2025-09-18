@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     # Ollama
     ollama_model: str = "llama3.8b"
-    ollama_base_url: str | None = None # default "http://localhost:11434"
+    ollama_base_url: str | None = "http://localhost:11434"
 
     # Documents
     doc_dir: str = str("app/data/docs")
