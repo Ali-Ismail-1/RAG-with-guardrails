@@ -1,0 +1,17 @@
+# --- Dev Tools ---
+black            # code formatter
+isort            # import sorter
+flake8           # linting
+mypy             # static typing checks
+
+# --- Testing ---
+pytest           # test runner
+pytest-asyncio   # for testing async FastAPI endpoints
+httpx            # for making test requests to FastAPI
+
+# --- FastAPI Utilities ---
+ipython          # better REPL for debugging
+rich             # nicer console output + logging
+
+# --- Docs / Jupyter (optional) ---
+jupyter          # notebooks (only if you want)
