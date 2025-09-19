@@ -235,10 +235,11 @@ Edit `settings.py` (or use `.env`) to configure:
 - ✅ Current: Basic RAG pipeline (retriever + LLM + history)
 - ✅ Guardrails for PII + profanity
 - ✅ Monitoring (logging + feedback)
-- 🔜 Add LangGraph orchestration for more complex flows  
-- 🔜 Add richer UI (React or Next.js)
+- ✅ Add LangGraph orchestration for more complex flows  
+- ✅ Add richer UI (Streamlit)
 - 🔜 Add more advanced compliance filters
 - 🔜 Support additional vector stores (Pinecone, Weaviate)  
+- 🔜 Security and Auth
 
 ---
 
