@@ -56,4 +56,4 @@ def get_embeddings():
 
 
 VDB = build_or_load_vectorstore(settings.doc_dir, settings.chroma_dir)
-RETRIEVER = VDB.as_retriever(search_kwargs={"k": 2})
+RETRIEVER = VDB.as_retriever(search_kwargs={"k": 6})
