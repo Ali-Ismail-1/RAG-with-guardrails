@@ -19,6 +19,10 @@ It demonstrates how to build a chatbot that:
 
 ---
 
+## Demo
+Go to https://rag-app-ui-ai.streamlit.app/ to interact with a live demo today!!
+
+<img width="1402" height="979" alt="image" src="https://github.com/user-attachments/assets/23324c61-5084-4cd5-96a5-a6d59a410244" />
 
 ### Run with Docker
 ```bash
@@ -235,12 +239,6 @@ Edit `settings.py` (or use `.env`) to configure:
 - 🔜 Add richer UI (React or Next.js)
 - 🔜 Add more advanced compliance filters
 - 🔜 Support additional vector stores (Pinecone, Weaviate)  
-
----
-
-## Demo 
-
-<img width="1402" height="979" alt="image" src="https://github.com/user-attachments/assets/23324c61-5084-4cd5-96a5-a6d59a410244" />
 
 ---
 
